@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kosa.artist.ArtistMapper">
+    <select id="selectAllByMemberId" parameterType="Long" resultType="MyArtistDTO">
+        SELECT artist.artist_id, member_id, my_artist_view_count, my_artist_avg_grade, artist_name, artist_image
+        FROM my_artist
+        JOIN artist
+        ON artist.artist_id = my_artist.artist_id
+        WHERE member_id=#{memberId}
+    </select>
+</mapper>

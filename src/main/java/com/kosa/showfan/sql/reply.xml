@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kosa.showfan.reply.ReplyMapper">
+	<insert id="insertReply" parameterType="ReplyDTO">
+		INSERT INTO
+		reply(reply_id, review_id, member_id, reply_content, reply_created_at) 
+		VALUES (reply_seq.NEXTVAL, #{reviewId}, #{memberId}, #{replyContent}, sysdate)
+	</insert>
+	<update id="updateReply" parameterType="ReplyDTO">
+		UPDATE reply 
+		SET reply_content = #{replyContent} 
+		WHERE reply_id = #{replyId}
+	</update>
+	<delete id="deleteReply" parameterType="ReplyDTO">
+		DELETE FROM reply 
+		WHERE reply_id = #{replyId}
+	</delete>
+</mapper>

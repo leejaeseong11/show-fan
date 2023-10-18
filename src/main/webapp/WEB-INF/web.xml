@@ -1,0 +1,44 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+    
+    <servlet>
+        <servlet-name>ShowServlet</servlet-name>
+        <display-name>ShowServlet</display-name>
+        <description></description>
+        <servlet-class>com.kosa.showfan.show.ShowServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowDetailServlet</servlet-name>
+        <display-name>ShowDetailServlet</display-name>
+        <description></description>
+        <servlet-class>com.kosa.showfan.show.ShowDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+		<servlet-name>ShowReviewController</servlet-name>
+		<display-name>ShowReviewController</display-name>
+		<description></description>
+		<servlet-class>com.kosa.showfan.review.controller.ShowReviewController</servlet-class>
+	</servlet>
+
+	
+    
+    <servlet-mapping>
+        <servlet-name>ShowServlet</servlet-name>
+        <url-pattern>/ShowServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowDetailServlet</servlet-name>
+        <url-pattern>/ShowDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+		<servlet-name>ShowReviewController</servlet-name>
+		<url-pattern>/showreview</url-pattern>
+	</servlet-mapping>
+
+    
+
+</web-app>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kosa.show.ShowMapper">
+    <select id="selectById"
+            resultType="ShowAllInfoDTO"
+            parameterType="List">
+        select *
+        from show a
+        left join seat c on (a.show_id = c.show_id)
+        left join cast d on (a.show_id = d.show_id)
+        left join artist e on ( d.artist_id = e.artist_id)
+        where a.show_id = #{asd}
+    </select>
+
+    <select id="selectByConcept"
+            resultType="ShowGenreDTO"
+            parameterType="hashmap">
+        <!-- SELECT * FROM SHOW WHERE GENRE_ID = #{GENRE} and <![CDATA[ rownum <= 30 ]]> -->
+        SELECT *
+		FROM (SELECT ROWNUM rn, s.show_id, s.show_poster, s.genre_id, s.show_name, s.show_status
+      		  FROM SHOW s 
+      		  WHERE GENRE_ID = #{genreId}) a
+		WHERE rn BETWEEN #{startRn} AND #{endRn}
+    </select>
+
+    <select id="selectByName"
+            resultType="String">
+        SELECT SHOW_ID FROM SHOW WHERE show_name = #{show_name}
+    </select>
+
+    <select id="selectAll"
+            resultType="ShowDTO"
+            parameterType="java.util.List">
+        SELECT * FROM SHOW WHERE SHOW_STATUS ='공연중' ORDER BY SHOW_START_DAY DESC
+        ,GENRE_ID ASC
+    </select>
+
+    <select id="selectByStringCnt" resultType="int" parameterType="string">
+        SELECT COUNT(*) FROM show WHERE INSTR(show_name, #{value}) !=0
+    </select>
+
+    <select id="selectByString" resultType="ShowSearchDTO" parameterType="hashmap">
+        SELECT *
+        FROM (
+        SELECT ROWNUM rn, s.show_id, s.show_poster, s.genre_id, s.show_name, s.show_venues, TO_CHAR(s.show_start_day,
+        'yyyy.mm.dd') show_start_day, TO_CHAR(s.show_end_day, 'yyyy.mm.dd') show_end_day, s.show_address, s.show_status,
+        NVL(r.c, 0) review_cnt, NVL(r.a, 0) grade_avg
+        FROM show s LEFT JOIN (SELECT show_id, COUNT(*) c, AVG(review_grade) a
+        FROM review
+        GROUP BY show_id) r ON s.show_id = r.show_id
+        WHERE INSTR(s.show_name, #{value}) !=0
+        ORDER BY show_end_day DESC ) sap
+        WHERE rn BETWEEN #{startRn} AND #{endRn}
+    </select>
+
+    <resultMap id="showCalendarMap" type="ShowCalendarDTO" autoMapping="true">
+        <id column="show_id" property="showId"/>
+        <collection column="artist_name" property="artistList" ofType="string"></collection>
+    </resultMap>
+
+    <select id="selectByDate" resultMap="showCalendarMap" parameterType="string">        
+        SELECT a.artist_name, s.show_id, s.genre_id, s.show_name, s.show_venues, s.show_address, TO_CHAR(s.show_start_day, 'yyyy-mm-dd') show_start_day, TO_CHAR(s.show_end_day, 'yyyy-mm-dd') show_end_day
+		FROM show s LEFT JOIN cast c ON s.show_id = c.show_id
+            		LEFT JOIN artist a ON c.artist_id = a.artist_id
+		WHERE TO_CHAR(s.show_start_day, 'yymm') = #{yymm} AND TO_CHAR(s.show_end_day, 'yymm') = #{yymm} AND ROWNUM BETWEEN 1 AND 50
+		ORDER BY s.show_start_day
+    </select>
+
+    <insert id="insertMyShow" parameterType="MyShowDTO">
+        INSERT INTO my_show VALUES (#{memberId}, #{showId})
+    </insert>
+
+    <delete id="deleteMyShow" parameterType="MyShowDTO">
+        DELETE FROM my_show WHERE member_id=#{memberId} AND show_id=#{showId}
+    </delete>
+
+    <select id="selectAllByMemberId" parameterType="Long" resultType="MyShowDTO">
+        SELECT member_id, show_id
+        FROM my_show
+        WHERE member_id=#{memberId}
+    </select>
+</mapper>

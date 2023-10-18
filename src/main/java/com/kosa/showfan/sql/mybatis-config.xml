@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="MemberDTO" type="com.kosa.showfan.member.dto.MemberDTO"/>
+        
+        <typeAlias alias="MyGenreDTO" type="com.kosa.showfan.myGenre.dto.MyGenreDTO"/>
+
+        <typeAlias alias="ShowDTO" type="com.kosa.showfan.show.dto.ShowDTO"/>
+        <typeAlias alias="ShowAllInfoDTO" type="com.kosa.showfan.show.dto.ShowAllInfoDTO"/>
+        <typeAlias alias="ShowGenreDTO" type="com.kosa.showfan.show.dto.ShowGenreDTO"/>        
+        <typeAlias alias="MyShowDTO" type="com.kosa.showfan.show.dto.MyShowDTO"/>
+
+        <typeAlias alias="ShowSearchDTO" type="com.kosa.showfan.show.dto.ShowSearchDTO"/>
+        <typeAlias alias="ShowCalendarDTO" type="com.kosa.showfan.show.dto.ShowCalendarDTO"/>
+
+        <typeAlias alias="ReviewDTO" type="com.kosa.showfan.review.dto.ReviewDTO"/>
+        <typeAlias alias="ReviewResponseDTO" type="com.kosa.showfan.review.dto.ReviewResponseDTO"/>
+        <typeAlias alias="ReviewShowResponseDTO" type="com.kosa.showfan.review.dto.ReviewShowResponseDTO"/>
+        <typeAlias alias="ReplyDTO" type="com.kosa.showfan.reply.dto.ReplyDTO"/>
+        <typeAlias alias="ReplyResponseDTO" type="com.kosa.showfan.reply.dto.ReplyResponseDTO"/>
+
+        <typeAlias alias="MyArtistDTO" type="com.kosa.showfan.artist.dto.MyArtistDTO"/>
+
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+    
+        <mapper resource="com/kosa/showfan/sql/show.xml"/>
+        <mapper resource="com/kosa/showfan/sql/review.xml"/>
+        <mapper resource="com/kosa/showfan/sql/reply.xml"/>
+        <mapper resource="com/kosa/showfan/sql/member.xml"/>
+        <mapper resource="com/kosa/showfan/sql/my-genre.xml"/>
+        <mapper resource="com/kosa/showfan/sql/artist.xml"/>
+
+    </mappers>
+
+</configuration>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kosa.showfan.review.ReviewMapper">
+    <resultMap type="ReviewResponseDTO" id="ReviewMap" autoMapping="true">
+        <id column="review_id" property="reviewId"/>
+        <collection property="reviewReply" ofType="ReplyResponseDTO"
+                    autoMapping="true">
+        </collection>
+    </resultMap>
+    <select id="selectByShowId" parameterType="string"
+            resultMap="ReviewMap">
+        SELECT r.review_id,
+        r.show_id,
+        m.member_image,
+        m.member_nickname,
+        r.review_grade,
+        r.review_content,
+        r.review_created_at,
+        r.review_is_modified,
+        s.seat_name,
+        s.seat_price,
+        re.reply_id,
+        re.member_nickname,
+        re.reply_content,
+        re.reply_created_at
+        FROM review r LEFT JOIN member m ON r.member_id = m.member_id
+        LEFT JOIN seat s ON r.seat_id = s.seat_id
+        FULL JOIN (SELECT p.review_id,
+        p.reply_id,
+        p.reply_content,
+        m.member_nickname,
+        p.reply_created_at
+        FROM reply p JOIN member m ON p.member_id = m.member_id) re ON r.review_id = re.review_id
+        WHERE r.show_id = #{showId}
+        ORDER BY r.review_created_at DESC
+    </select>
+    <select id="selectByMemberId" parameterType="long"
+            resultType="ReviewShowResponseDTO">
+        SELECT r.review_id,
+        r.show_id,
+        sh.show_poster,
+        sh.show_name,
+        sh.show_venues,
+        sh.genre_id,
+        r.review_grade,
+        r.review_content,
+        r.review_created_at,
+        r.review_is_modified,
+        s.seat_name,
+        s.seat_price
+        FROM review r LEFT JOIN show sh ON r.show_id = sh.show_id
+        LEFT JOIN seat s ON r.seat_id = s.seat_id
+        WHERE r.member_id = #{memberId}
+        ORDER BY r.review_created_at DESC
+    </select>
+    <insert id="insertReview" parameterType="ReviewDTO">
+        INSERT INTO
+        review(review_id, member_id, show_id, review_grade, review_content,
+        seat_id)
+        VALUES (review_seq.NEXTVAL, #{memberId}, #{showId}, #{reviewGrade},
+        #{reviewContent}, #{seatId})
+    </insert>
+    <!-- 수정됨 추가, 작성시간은 최초 작성시간 -->
+    <update id="updateReview" parameterType="ReviewDTO">
+        UPDATE review
+        SET review_content = #{reviewContent}, REVIEW_IS_MODIFIED='1', review_grade = #{reviewGrade}, seat_id =
+        #{seatId}
+        WHERE
+        review_id = #{reviewId}
+    </update>
+    <!-- 테이블에서 cascasde 이용해서 리뷰 삭제시 답글도 삭제 -->
+    <delete id="deleteReview" parameterType="ReviewDTO">
+        DELETE FROM review
+        WHERE review_id = #{reviewId}
+    </delete>
+    <select id="selectReviewById" parameterType="Long" resultType="ReviewDTO">
+        SELECT *
+        FROM review
+        WHERE review_id = #{reviewId}
+    </select>
+</mapper>
