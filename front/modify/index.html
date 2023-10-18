@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./modify.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/cerulean/bootstrap.min.css"
+      rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="module" src="./modify.js"></script>
+  </head>
+
+  <body>
+    <header></header>
+    <nav></nav>
+    <main>
+      <div id="modify-layout">
+        <form class="hr">
+  
+          <br />
+          <label for="e">이메일 : </label
+          ><span id="e" class="emailclass">aieo5467@naver.com</span>
+  
+          <hr class="hr" />
+  
+
+          <label for="p">비밀번호 :</label>
+          <input
+            type="password"
+            name="pwd"
+            class="form-control"
+            id="p"
+            placeholder="Password"
+            autocomplete="off"
+            required
+          /><br />
+          <label for="p1">비밀번호 확인 :</label>
+          <input type="password" id="p1" class="form-control" placeholder="Password" autocomplete="off"required /><br />
+  
+          <hr class="hr" />
+          <small class="form-text text-muted" id="pwdchk">비밀번호를 입력하세요</small>
+  
+          <br>
+          <br>
+          <label for="n">닉네임 :</label>
+          <input 
+            type="text" 
+            name="name" 
+            class="form-control"
+            id="n"
+            placeholder="닉네임"
+            autocomplete="off"
+            required 
+          />
+          <button type="button" id="dupchk" class="btn btn-outline-success">
+            중복확인</button
+          ><br />
+  
+          <hr class="hr" />
+          <small class="form-text text-muted" id="nickchk"
+          >닉네임을 입력하세요</small
+        >
+
+          <div>선호 장르</div>
+          <div>
+            <label
+              ><input type="checkbox" id="play" name="genre" value="1" />
+              연극</label
+            >
+            <label
+              ><input type="checkbox" id="musical" name="genre" value="2" />
+              뮤지컬</label
+            >
+            <label
+              ><input type="checkbox" id="classic" name="genre" value="3" />
+              클래식</label
+            >
+            <label
+              ><input type="checkbox" id="concert" name="genre" value="4" />
+              콘서트</label
+            >
+            <label
+              ><input type="checkbox" id="festival" name="genre" value="5" />
+              축제</label
+            >
+          </div>
+  
+          <hr class="hr" />
+  
+          <div>이메일 알림 수신 동의 여부</div>
+          <input type="radio" name="emailchk" class="radio" value="1" checked />동의합니다
+          <input type="radio" name="emailchk" class="radio" value="0"/>동의하지 않습니다
+  
+          <hr class="hr" />
+          <small class="form-text text-muted">회원 탈퇴</small>
+          <button type="submit" class="btn btn-outline-success">수정</button>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

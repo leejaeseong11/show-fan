@@ -1,0 +1,41 @@
+@import url("../util/base.css");
+#navigation-layout {
+  height: 50px;
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--main2-color);
+}
+
+#navigation-genre-container,
+#navigation-menu-container {
+  width: 100%;
+  display: flex;
+
+  font-size: 1.25rem;
+
+  padding-left: 2rem;
+  margin-bottom: unset;
+  list-style-type: none;
+}
+
+#navigation-genre-container > li,
+#navigation-menu-container > li {
+  margin: 0 12px;
+
+  white-space: nowrap;
+}
+
+#navigation-genre-container > li > a:hover,
+#navigation-menu-container > li > a:hover {
+  font-weight: bold;
+
+  color: var(--main4-color);
+}
+
+#navigation-menu-container {
+  display: flex;
+  justify-content: flex-end;
+}

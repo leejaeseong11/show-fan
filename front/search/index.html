@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- base -->
+    <link rel="icon" href="../images/logo-icon.png" />
+    <link rel="stylesheet" href="../util/base.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d9fe784aec.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="../header/header.css" />
+    <link rel="stylesheet" href="./search.css" />
+    
+    <script type="module" src="../header/header.js"></script>
+    <script type="module" src="./search.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="header-layout">
+        <a id="header-logo-link" href="../index.html">
+          <img id="header-logo-icon" src="../images/logo-icon.png" />
+          <h1>쇼팬</h1>
+        </a>
+        <div id="header-search-container">
+          <input id="header-search-input" type="text" />
+          <button type="button" id="header-search-button">검색</button>
+        </div>
+        <div id="header-menu-container">
+          <a href="login" class="header-menu-link" id="login">로그인</a>
+          <a href="#" class="header-menu-link" id="logout">로그아웃</a>
+          <i id="header-menu-line-icon" class="fa-solid fa-slash"></i>
+          <a href="signup" class="header-menu-link" id="signup">회원가입</a>
+          <a href="mypage" class="header-menu-link" id="mypage">마이페이지</a>
+        </div>
+      </div>
+    </header>
+    <nav></nav>
+    <main>
+    <div id="search-layout">
+      <!-- 필터 -->
+      <div id="search-filter-container">
+        <div class="container-sm" style="border: solid">
+          <div class="row">
+            <div class="col-sm-1"><b>장르</b></div>
+            <div class="col-sm-1">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="genreAll"
+                />
+                <label class="form-check-label" for="genreAll"> 전체 </label>
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="4"
+                  id="concert"
+                  name="genre"
+                />
+                <label class="form-check-label" for="concert"> 콘서트 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="2"
+                  id="musical"
+                  name="genre"
+                />
+                <label class="form-check-label" for="musical"> 뮤지컬 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="1"
+                  id="theater"
+                  name="genre"
+                />
+                <label class="form-check-label" for="theater"> 연극 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="5"
+                  id="festival"
+                  name="genre"
+                />
+                <label class="form-check-label" for="festival"> 축제 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="3"
+                  id="classic"
+                  name="genre"
+                />
+                <label class="form-check-label" for="classic"> 클래식 </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"><b>상태</b></div>
+            <div class="col-sm-1">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="statusAll"
+                />
+                <label class="form-check-label" for="statusAll"> 전체 </label>
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="공연예정"
+                  id="coming"
+                  name="status"
+                />
+                <label class="form-check-label" for="coming"> 공연 예정 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="공연중"
+                  id="during"
+                  name="status"
+                />
+                <label class="form-check-label" for="during"> 공연 중 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="공연완료"
+                  id="end"
+                  name="status"
+                />
+                <label class="form-check-label" for="end"> 공연 종료 </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"><b>지역</b></div>
+            <div class="col-sm-1">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="localAll"
+                />
+                <label class="form-check-label" for="localAll"> 전체 </label>
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="서울"
+                  id="seoul"
+                  name="local"
+                />
+                <label class="form-check-label" for="seoul"> 서울 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="세종"
+                  id="sejong"
+                  name="local"
+                />
+                <label class="form-check-label" for="sejong"> 세종 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="인천"
+                  id="incheon"
+                  name="local"
+                />
+                <label class="form-check-label" for="incheon"> 인천 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="대전"
+                  id="daejeon"
+                  name="local"
+                />
+                <label class="form-check-label" for="daejeon"> 대전 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="대구"
+                  id="daegu"
+                  name="local"
+                />
+                <label class="form-check-label" for="daegu"> 대구 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="광주"
+                  id="gwangju"
+                  name="local"
+                />
+                <label class="form-check-label" for="gwangju"> 광주 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="울산"
+                  id="ulsan"
+                  name="local"
+                />
+                <label class="form-check-label" for="ulsan"> 울산 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="부산"
+                  id="busan"
+                  name="local"
+                />
+                <label class="form-check-label" for="busan"> 부산 </label>
+              </div>
+              <br>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="경기"
+                  id="gyeonggi"
+                  name="local"
+                />
+                <label class="form-check-label" for="gyeonggi"> 경기 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="강원"
+                  id="gangwon"
+                  name="local"
+                />
+                <label class="form-check-label" for="gangwon"> 강원 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="경상"
+                  id="gyeongsang"
+                  name="local"
+                />
+                <label class="form-check-label" for="gyeongsang"> 경상 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="충청"
+                  id="chungcheong"
+                  name="local"
+                />
+                <label class="form-check-label" for="chungcheong"> 충청 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="전라"
+                  id="jeolla"
+                  name="local"
+                />
+                <label class="form-check-label" for="jeolla"> 전라 </label>
+              </div>
+              &nbsp;
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="제주"
+                  id="jeju"
+                  name="local"
+                />
+                <label class="form-check-label" for="jeju"> 제주 </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="search-line"></div>
+      <br />
+      <!-- 검색 결과
+        공연ID
+        포스터 이미지
+        공연장
+        공연기간
+        평점
+        리뷰 갯수
+        공연 상태
+      -->
+      <div id="search-result-container">
+        <div id="search-result-count" class="container text-right">
+          <b>검색 결과 (0)</b>
+        </div>
+        <br />
+        <div class="container-sm">
+          <div class="row row-cols-10 row-cols-md-5 g-3" id="showCardList">
+            <div class="col">
+              <a>
+                <div class="card h-100">
+                  <img
+                    class="card-img-top"
+                    src="https://showfan.s3.ap-northeast-2.amazonaws.com/PF219046.jpg"
+                  />
+                  <div class="status"><b>공연중</b></div>
+                  <div class="card-body">
+                    <h5 class="card-title">KOSA MSA FullStack 2기</h5>
+                    <p class="card-text">
+                      <div id="period">2023.07.24 ~ 2023.12.22</div><br>
+                      <div id="venues">예술의 전당</div><br>
+                      <div id="grade"><i
+                        id="show-review-star-icon"
+                        class="fa-solid fa-star"
+                      ></i> 5.0 (리뷰)</div>
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="btn_top" title="위로"><img src='../images/btn_top.png' alt='top' /></div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+  </body>
+</html>
