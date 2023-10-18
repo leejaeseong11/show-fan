@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- base -->
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../images/logo-icon.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d9fe784aec.js"
+      crossorigin="anonymous"
+    ></script>
+    <!--jquery slick for slider-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script type="text/javascript" src="../lib/slick.min.js"></script>
+
+    <link rel="stylesheet" href="./mypage.css" />
+    <script type="module" src="./mypage.js"></script>
+    <link rel="stylesheet" href="../header/header.css" />
+    <link rel="stylesheet" href="../navigation/navigation.css" />
+    <link rel="stylesheet" href="../footer/footer.css" />
+  </head>
+  <body>
+    <header>
+      <div id="header-layout">
+        <a id="header-logo-link" href="../">
+          <img id="header-logo-icon" src="../images/logo-icon.png" />
+          <h1>쇼팬</h1>
+        </a>
+        <div id="header-search-container">
+          <input id="header-search-input" type="text" />
+          <button type="button" id="header-search-button">검색</button>
+        </div>
+        <div id="header-menu-container">
+          <a href="#" class="header-menu-link" id="logout">로그아웃</a>
+          <i id="header-menu-line-icon" class="fa-solid fa-slash"></i>
+          <a href="./" class="header-menu-link" id="mypage">마이페이지</a>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <div id="navigation-layout">
+        <ol id="navigation-genre-container">
+          <li class="all"><a href="/">전체</a></li>
+          <li class="concert"><a href="/genre">콘서트</a></li>
+          <li class="musical"><a href="/genre">뮤지컬</a></li>
+          <li class="show"><a href="/genre">연극</a></li>
+          <li class="festival"><a href="/genre">축제</a></li>
+          <li class="classic"><a href="/genre">클래식</a></li>
+        </ol>
+        <ol id="navigation-menu-container">
+          <li>
+            <a href="../calendar/index.html" id="calendar-button"
+              >공연 캘린더</a
+            >
+          </li>
+        </ol>
+      </div>
+    </nav>
+    <main>
+      <div id="mypage-layout">
+        <div id="mypage-profile-container">
+          <div id="mypage-profile">
+            <div class="mypage-profile-icon">
+              <i class="fa-solid fa-user fa-2xl"></i>
+            </div>
+            <img class="hide-image" src="" alt="profile-image" />
+            <div id="mypage-profile-nickname" class="mypage-main-text">
+              nickname
+            </div>
+          </div>
+          <div id="update-profile">
+            <a href="../modify/index.html" class="mypage-main-text"
+              >내 정보 수정</a
+            >
+            <i id="update-profile-icon" class="fa-solid fa-gear fa-2xl"></i>
+          </div>
+        </div>
+        <div class="mypage-line"></div>
+        <div class="mypage-main-text" id="my-show-title-container">
+          <div>나의 찜 목록&nbsp;</div>
+          <div id="my-show-count">(0)</div>
+        </div>
+        <div id="my-show-slide-container">
+          <i
+            id="my-show-left-arrow-icon"
+            class="fa-solid fa-circle-chevron-left fa-2xl"
+          ></i>
+          <div id="my-show-slide">
+            <ul id="my-show-container"></ul>
+          </div>
+          <i
+            id="my-show-right-arrow-icon"
+            class="fa-solid fa-circle-chevron-right fa-2xl"
+          ></i>
+        </div>
+        <div class="mypage-line"></div>
+        <div class="mypage-main-text">나의 평가</div>
+        <div id="mypage-evaluation-containers">
+          <div class="mypage-evaluation-container">
+            <div
+              id="mypage-evalution-count-value"
+              class="mypage-evaluation-count-text"
+            >
+              0
+            </div>
+            <div>평가 수</div>
+          </div>
+          <i id="mypage-evaluation-line-icon" class="fa-solid fa-slash"></i>
+          <div class="mypage-evaluation-container">
+            <div
+              id="mypage-evalution-count-value-4"
+              class="mypage-evaluation-count-text"
+            >
+              0
+            </div>
+            <div>콘서트</div>
+          </div>
+          <div class="mypage-evaluation-container">
+            <div
+              id="mypage-evalution-count-value-2"
+              class="mypage-evaluation-count-text"
+            >
+              0
+            </div>
+            <div>뮤지컬</div>
+          </div>
+          <div class="mypage-evaluation-container">
+            <div
+              id="mypage-evalution-count-value-4"
+              class="mypage-evaluation-count-text"
+            >
+              0
+            </div>
+            <div>연극</div>
+          </div>
+          <div class="mypage-evaluation-container">
+            <div
+              id="mypage-evalution-count-value-5"
+              class="mypage-evaluation-count-text"
+            >
+              0
+            </div>
+            <div>축제</div>
+          </div>
+          <div class="mypage-evaluation-container">
+            <div
+              id="mypage-evalution-count-value-3"
+              class="mypage-evaluation-count-text"
+            >
+              0
+            </div>
+            <div>클래식</div>
+          </div>
+        </div>
+        <div class="mypage-line"></div>
+        <div class="mypage-main-text">내가 쓴 리뷰</div>
+        <div id="mypage-review-containers"></div>
+        <div class="mypage-line"></div>
+        <div class="mypage-main-text">선호하는 출연진</div>
+        <div id="mypage-my-artist-containers"></div>
+        <div class="mypage-line"></div>
+        <div id="mypage-accumulated-amount" class="mypage-main-text">
+          지금까지 작품 관람에 총&nbsp;<span id="member-money-spend">0</span
+          >원을 썼어요!
+        </div>
+      </div>
+      <div id="popup" class="popup hidden">
+        <div class="background"></div>
+        <div class="popup-box">
+          <i class="fa-solid fa-xmark" id="close-btn"></i>
+          <div id="popup-container">
+            <span class="pop-title"></span>
+            <select id="popup-seat-list"></select>
+            <fieldset class="rate">
+              <input
+                type="radio"
+                id="rating10"
+                name="reviewGrade"
+                value="5"
+              /><label for="rating10" title="5점"></label>
+              <input
+                type="radio"
+                id="rating9"
+                name="reviewGrade"
+                value="4.5"
+              /><label class="half" for="rating9" title="4.5점"></label>
+              <input
+                type="radio"
+                id="rating8"
+                name="reviewGrade"
+                value="4"
+              /><label for="rating8" title="4점"></label>
+              <input
+                type="radio"
+                id="rating7"
+                name="reviewGrade"
+                value="3.5"
+              /><label class="half" for="rating7" title="3.5점"></label>
+              <input
+                type="radio"
+                id="rating6"
+                name="reviewGrade"
+                value="3"
+              /><label for="rating6" title="3점"></label>
+              <input
+                type="radio"
+                id="rating5"
+                name="reviewGrade"
+                value="2.5"
+              /><label class="half" for="rating5" title="2.5점"></label>
+              <input
+                type="radio"
+                id="rating4"
+                name="reviewGrade"
+                value="2"
+              /><label for="rating4" title="2점"></label>
+              <input
+                type="radio"
+                id="rating3"
+                name="reviewGrade"
+                value="1.5"
+              /><label class="half" for="rating3" title="1.5점"></label>
+              <input
+                type="radio"
+                id="rating2"
+                name="reviewGrade"
+                value="1"
+              /><label for="rating2" title="1점"></label>
+              <input
+                type="radio"
+                id="rating1"
+                name="reviewGrade"
+                value="0.5"
+              /><label class="half" for="rating1" title="0.5점"></label>
+            </fieldset>
+          </div>
+          <textarea class="pop-detail"></textarea>
+          <button style="cursor: pointer" id="popup-regist-button">등록</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div id="footer-layout">
+        <p>COPYRIGHT ⓒ 쇼팬하이머 ALL RIGHTS RESERVED.</p>
+      </div>
+    </footer>
+  </body>
+</html>

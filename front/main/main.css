@@ -1,0 +1,289 @@
+#mypage-layout {
+  margin: 48px;
+}
+
+.mypage-main-text {
+  font-size: 1.5em;
+}
+
+div.mypage-line {
+  margin: 36px 0;
+  width: 100%;
+
+  border: 1px solid var(--main2-color);
+}
+
+/* proflie, update my info */
+#mypage-profile-container {
+  margin-bottom: 24px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+#mypage-profile,
+#update-profile {
+  display: flex;
+  align-items: center;
+
+  white-space: nowrap;
+}
+
+#mypage-profile > div,
+#update-profile > div {
+  margin-right: 12px;
+}
+
+i.hide-icon {
+  display: none;
+}
+
+img.hide-image {
+  display: none;
+}
+
+#mypage-profile > img {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+  border: 1px solid var(--black-color);
+}
+
+.mypage-profile-icon {
+  width: 72px;
+  height: 72px;
+
+  font-size: 30px;
+  text-align: center;
+  line-height: 64px;
+
+  border-radius: 50%;
+  background-color: var(--main1-color);
+  color: var(--main3-color);
+}
+
+#update-profile-icon {
+  color: var(--main4-color);
+}
+
+/* my show list */
+.my-show-slide-container {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+}
+
+.my-show-slide {
+  overflow: hidden;
+}
+
+.my-show-left-arrow-icon,
+.my-show-right-arrow-icon {
+  color: var(--main3-color);
+}
+
+.my-show-left-arrow-icon:hover,
+.my-show-right-arrow-icon:hover {
+  cursor: pointer;
+
+  color: var(--main4-color);
+}
+
+.my-show {
+  margin: 12px;
+}
+
+.my-show > img {
+  width: 70%;
+  height: 60%;
+  padding: 10px;
+  aspect-ratio: 83/121;
+  border-radius: 20px;
+}
+
+.my-show > div {
+  margin-top: 4px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  word-break: break-word;
+  font-size: 1.25em;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* my evalustion count */
+#mypage-evaluation-containers {
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mypage-evaluation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mypage-evaluation-line-icon {
+  font-size: 24px;
+
+  transform: rotate(51.5deg);
+}
+
+.mypage-evaluation-count-text {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+/* my review */
+#mypage-review-containers {
+  display: flex;
+  justify-content: center;
+}
+
+.mypage-review-container {
+  margin: 12px 0;
+  min-width: 80%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mypage-review-post {
+  margin-left: 12px;
+  width: 7.5%;
+
+  aspect-ratio: 83/121;
+}
+
+.mypage-review-line-icon {
+  transform: rotate(51.5deg);
+}
+
+#mypage-review-info {
+  margin-left: 12px;
+  width: 80%;
+}
+
+#mypage-review-show-info {
+  margin-bottom: 12px;
+
+  display: flex;
+
+  white-space: nowrap;
+
+  opacity: 0.5;
+}
+
+#mypage-review-evaluation-info {
+  display: flex;
+}
+
+#mypage-review-star-icon {
+  color: var(--yellow-color);
+}
+
+#mypage-review-content {
+  margin-left: 12px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  word-break: break-word;
+  font-size: 1.25em;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+#mypage-review-button {
+  display: flex;
+
+  white-space: nowrap;
+
+  opacity: 0.5;
+}
+
+.mypage-review-line {
+  margin: 20px 36px;
+
+  opacity: 0.5;
+  border: 1px solid var(--black-color);
+}
+
+#mypage-view-more-review {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  font-size: 1.25em;
+}
+
+/* my artist list */
+#mypage-my-artist-containers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#mypage-my-artist-container {
+  margin-top: 16px;
+
+  display: flex;
+}
+
+.mypage-artist-icon {
+  margin-right: 12px;
+  width: 60px;
+  height: 60px;
+
+  font-size: 24px;
+  text-align: center;
+  line-height: 52px;
+
+  border-radius: 50%;
+  background-color: var(--main1-color);
+  color: var(--main3-color);
+}
+
+.my-artist-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.my-artist-count {
+  display: flex;
+
+  opacity: 0.5;
+}
+
+.mypage-my-artist-name {
+  font-size: 1.25em;
+}
+
+/* my accumulated amount*/
+#mypage-accumulated-amount {
+  display: flex;
+  justify-content: center;
+}
+
+#mypage-accumulated-amount > span {
+  color: var(--main3-color);
+}
+
+.show_genre {
+  width: 80%;
+  margin: auto;
+  padding-top: 20px;
+  color: #0f2c59;
+  font-weight: bold;
+  font-size: larger;
+}

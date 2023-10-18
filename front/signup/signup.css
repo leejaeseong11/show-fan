@@ -1,0 +1,44 @@
+@import url("../util/base.css");
+
+section{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section>input.radio{
+    display: block;
+}
+#signup-layout{
+    width: 40%;
+    margin: auto;
+    margin-left: 30%;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: var(--main4-color);
+    padding: 50px;
+}
+
+button[type="submit"] {
+    width: 100%;
+}
+
+
+label {
+    display: inline-block;
+    margin-bottom: 3px; /* 원하는 간격으로 조절 */
+}
+
+input {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 3px; /* 원하는 간격으로 조절 */
+}
+/* 
+hr.hr {
+    margin-top: 3px;
+}
+small.form-text{
+    margin-bottom: 100px;
+}  */

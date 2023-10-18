@@ -1,0 +1,58 @@
+@import url("../util/base.css");
+#header-layout {
+  padding: 30px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header-logo-icon {
+  width: 56px;
+  margin-right: 12px;
+}
+
+#header-logo-link {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.2rem;
+  white-space: nowrap;
+
+  color: var(--main4-color);
+}
+
+#header-search-container {
+  display: flex;
+}
+
+#header-search-input {
+  width: 25vw;
+  height: 30px;
+  margin-right: 20px;
+  font-size: inherit;
+  border: 5px solid var(--main2-color);
+  box-sizing: unset;
+}
+
+#header-search-button {
+  width: 60px;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+
+  border: none;
+  background-color: var(--main2-color);
+}
+
+#header-menu-container {
+  display: flex;
+
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+#header-menu-line-icon {
+  transform: rotate(51.5deg);
+}
